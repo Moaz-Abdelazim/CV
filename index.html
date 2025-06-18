@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="AI Developer CV - Moaz Mohammed Abdelazim">
+    <meta property="og:title" content="Moaz Abdelazim | AI Developer">
+    <meta property="og:description" content="CV highlighting ML, NLP, Deep Learning projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="preview.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moaz Mohammed Abdelazim - AI Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cv-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.03) 2px,
+                rgba(255,255,255,0.03) 4px
+            );
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-link:hover {
+            color: inherit;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .professional-summary {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left-width: 5px;
+            border-left-style: solid;
+            border-left-color: #3498db;
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #495057;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .project {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: between;
+            align-items: start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .project-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .project-role {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .project-date {
+            color: #95a5a6;
+            font-size: 0.9em;
+            margin-left: auto;
+        }
+
+        .project-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-description li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .tech-stack-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .course {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .course-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .course-details {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .course-topics {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #495057;
+            line-height: 1.5;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .language-level {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .activities-list {
+            list-style: none;
+        }
+
+        .activities-list li {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            padding-left: 50px;
+            position: relative;
+            border: 1px solid #e9ecef;
+        }
+
+        .activities-list li::before {
+            content: '•';
+            position: absolute;
+            left: 20px;
+            color: #f39c12;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-header {
+                flex-direction: column;
+            }
+            
+            .project-date {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">Moaz Mohammed Abdelazim</h1>
+                <p class="title">AI Developer & Machine Learning Engineer</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span>moazabdelazim08@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <span>+20 128 130 1633</span>
+                    </div>
+                    <a href="https://linkedin.com/in/moaz-abdelazim" target="_blank" class="contact-item contact-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <span>linkedin.com/in/moaz-abdelazim</span>
+                    </a>
+                    <a href="https://github.com/Moaz-Abdelazim" target="_blank" class="contact-item contact-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>github.com/Moaz-Abdelazim</span>
+                    </a>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <span>Cairo, Egypt</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">•</div>
+                    Professional Summary
+                </h2>
+                <div class="professional-summary">
+                    Passionate AI Developer with hands-on experience in Machine Learning, Deep Learning, and Natural Language Processing. Proven track record of developing innovative solutions including RAG-powered chatbots and predictive models. Continuously expanding expertise through intensive training programs and practical projects. Seeking to leverage technical skills and enthusiasm for AI to contribute to cutting-edge projects and drive business value.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">T</div>
+                    Technical Skills
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                            </svg>
+                            Programming Languages
+                        </h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Libraries & Frameworks
+                        </h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">NLTK</span>
+                            <span class="skill-tag">Transformers</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            AI/ML Techniques
+                        </h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Linear Regression</span>
+                            <span class="skill-tag">Random Forest</span>
+                            <span class="skill-tag">Decision Tree</span>
+                            <span class="skill-tag">SVM</span>
+                            <span class="skill-tag">KNN</span>
+                            <span class="skill-tag">XGBoost</span>
+                            <span class="skill-tag">PCA</span>
+                            <span class="skill-tag">RNN/LSTM/GRU</span>
+                            <span class="skill-tag">Attention Mechanisms</span>
+                            <span class="skill-tag">RAG</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                            Tools & Platforms
+                        </h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Google Colab</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">FAISS</span>
+                            <span class="skill-tag">Kaggle</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">P</div>
+                    Featured Projects
+                </h2>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">History Chatbot with RAG</h3>
+                            <p class="project-role">AI Developer (Team Project)</p>
+                        </div>
+                        <span class="project-date">March 2025 – June 2025</span>
+                    </div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Led team development of intelligent chatbot supporting historical queries for six countries using Retrieval-Augmented Generation (RAG) with Qwen models</li>
+                            <li>Responsible for creating responsive UI using Streamlit, system integration, and model optimization</li>
+                            <li>Implemented sophisticated prompt engineering strategies to improve response accuracy and relevance</li>
+                            <li>Architected efficient information retrieval using FAISS vector database and Weaviate for enhanced search capabilities</li>
+                            <li>Successfully deployed prototype on Streamlit Cloud with performance optimizations based on user feedback</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <div class="tech-stack-label">Technologies:</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">RAG</span>
+                                <span class="skill-tag">FAISS</span>
+                                <span class="skill-tag">Weaviate</span>
+                                <span class="skill-tag">Streamlit</span>
+                                <span class="skill-tag">Qwen LLM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Energy Consumption Forecasting</h3>
+                            <p class="project-role">AI Developer</p>
+                        </div>
+                        <span class="project-date">January 2025 – March 2025</span>
+                    </div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Built and optimized Random Forest model for energy consumption prediction achieving high accuracy through advanced feature engineering</li>
+                            <li>Performed comprehensive data preprocessing and exploratory analysis using Pandas, identifying critical consumption patterns</li>
+                            <li>Created compelling data visualizations with Matplotlib and Seaborn to communicate insights to stakeholders</li>
+                            <li>Evaluated model performance using industry-standard metrics (RMSE, R²) ensuring reliable predictions</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <div class="tech-stack-label">Technologies:</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Scikit-learn</span>
+                                <span class="skill-tag">Pandas</span>
+                                <span class="skill-tag">Matplotlib</span>
+                                <span class="skill-tag">Seaborn</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Arabic BERT Fine-Tuning</h3>
+                            <p class="project-role">AI Developer</p>
+                        </div>
+                        <span class="project-date">November 2024 – January 2025</span>
+                    </div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Fine-tuned BERT model on Arabic text dataset for sentiment analysis, achieving 15% accuracy improvement through systematic hyperparameter optimization</li>
+                            <li>Implemented robust text preprocessing pipeline using NLTK for Arabic language-specific challenges</li>
+                            <li>Utilized Hugging Face's Transformers library for efficient tokenization and model implementation</li>
+                            <li>Documented entire process in detailed Colab notebooks and shared on GitHub for community benefit and reproducibility</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <div class="tech-stack-label">Technologies:</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">BERT</span>
+                                <span class="skill-tag">PyTorch</span>
+                                <span class="skill-tag">Transformers</span>
+                                <span class="skill-tag">NLTK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">E</div>
+                    Education & Certifications
+                </h2>
+                
+                <div class="course">
+                    <h3 class="course-title">AI Diploma Intermediate Level</h3>
+                    <p class="course-details">Neurotech • 160 hours • 2025</p>
+                    <span class="grade-badge">Grade: 96%</span>
+                    <p class="course-topics">
+                        <strong>Curriculum:</strong> Advanced Python Programming, Mathematics & Statistics for AI, Data Preparation & Feature Engineering, Machine Learning Algorithms, Deep Learning Architectures, Model Optimization & Deployment
+                    </p>
+                </div>
+
+                <div class="course">
+                    <h3 class="course-title">Artificial Intelligence Level 2: NLP</h3>
+                    <p class="course-details">Neurotech • 80 hours • 2025</p>
+                    <p class="course-topics">
+                        <strong>Curriculum:</strong> Natural Language Processing Fundamentals, Text Processing Pipeline, Text Classification & Clustering, Topic Modeling, Recommendation Systems, Sequence Models, Sequence-to-Sequence Architectures, Transformer Models
+                    </p>
+                </div>
+
+                <div class="course">
+                    <h3 class="course-title">Artificial Intelligence Level 1: Python</h3>
+                    <p class="course-details">Neurotech • 160 hours • 2024</p>
+                    <p class="course-topics">
+                        <strong>Curriculum:</strong> AI Fundamentals, Python Programming Essentials, Control Structures & Algorithms, Data Structures & File I/O, Object-Oriented Programming, Software Development Best Practices
+                    </p>
+                </div>
+
+                <div class="course">
+                    <h3 class="course-title">Artificial Intelligence Level 2: Computer Vision</h3>
+                    <p class="course-details">Neurotech • 80 hours • In Progress</p>
+                    <p class="course-topics">
+                        <strong>Upcoming Curriculum:</strong> Computer Vision Fundamentals, Image Processing Techniques, Deep Learning for Vision, Video Analysis & Object Tracking, 3D Vision & Applications
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">A</div>
+                    Professional Activities
+                </h2>
+                <ul class="activities-list">
+                    <li><strong>AI Community Engagement:</strong> Active member of AI enthusiast communities, regularly participating in Kaggle competitions and collaborative learning initiatives</li>
+                    <li><strong>Knowledge Sharing:</strong> Consistently sharing project insights, technical articles, and AI developments on LinkedIn to contribute to the professional community</li>
+                    <li><strong>Open Source Contribution:</strong> Maintaining comprehensive GitHub repository with 15+ AI/ML projects, featuring detailed documentation and reproducible code</li>
+                    <li><strong>Continuous Learning:</strong> Regularly experimenting with cutting-edge AI technologies and documenting findings for future reference and community benefit</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">L</div>
+                    Languages
+                </h2>
+                <div class="language-item">
+                    <span class="language-name">Arabic</span>
+                    <span class="language-level">Native</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">English</span>
+                    <span class="language-level">Upper-Intermediate</span>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
